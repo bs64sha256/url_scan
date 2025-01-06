@@ -16,9 +16,9 @@ def get_whois_info(url):
 
         return {
             "domain": 'Домен: '+domain,
-            "registrar": w.registrar or "N/A",  # Обработка отсутствующих данных
+            "registrar": w.registrar or "N/A",
             "ip": "IP адрес: "+ip,
-            "creation_date": w.creation_date or "N/A", # Обработка отсутствующих данных
+            "creation_date": w.creation_date or "N/A",
         }
 
     except whois.parser.PywhoisError as e:
@@ -66,8 +66,6 @@ url_entry.grid(row=0, column=1, padx=5, pady=5)
 process_button = ttk.Button(root, text="Получить информацию", command=process_url)
 process_button.grid(row=1, column=0, columnspan=2, pady=10)
 
-
-# Метки для результатов
 domain_label = ttk.Label(root, text="Домен: ")
 domain_label.grid(row=2, column=0, columnspan=2, pady=5, sticky=tk.W)
 
