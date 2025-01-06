@@ -55,7 +55,7 @@ def clear_results():
 
 root = tk.Tk()
 root.title("Whois Информация")
-root.geometry('6000x600+0+0')
+root.geometry('500x300+0+0')
 
 url_label = ttk.Label(root, text="Введите URL-адрес:")
 url_label.grid(row=0, column=0, padx=5, pady=5, sticky=tk.W)
