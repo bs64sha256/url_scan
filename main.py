@@ -17,7 +17,7 @@ def get_whois_info(url):
         return {
             "domain": 'Домен: '+domain,
             "registrar": w.registrar or "N/A",
-            "ip": "IP адрес: "+ip,
+            "ip": "IP сервера: "+ip,
             "creation_date": w.creation_date or "N/A",
         }
 
@@ -44,7 +44,7 @@ def process_url():
         domain_label.config(text=result['domain'])
         registrar_label.config(text="Регистратор: "+result['registrar'])
         ip_label.config(text=result['ip'])
-        creation_date_label.config(text='Дата регистрации: '+str(result['creation_date'][0]))
+        creation_date_label.config(text='Дата регистрации: '+str(result['creation_date']))
 
 
 def clear_results():
@@ -55,27 +55,27 @@ def clear_results():
 
 root = tk.Tk()
 root.title("Whois Информация")
-root.geometry('500x300+0+0')
+root.geometry('500x195+0+0')
 
 url_label = ttk.Label(root, text="Введите URL-адрес:")
-url_label.grid(row=0, column=0, padx=5, pady=5, sticky=tk.W)
+url_label.place(x=10, y=10)
 
-url_entry = ttk.Entry(root, width=40)
-url_entry.grid(row=0, column=1, padx=5, pady=5)
+url_entry = ttk.Entry(root, width=49)
+url_entry.place(x=140, y=10)
 
-process_button = ttk.Button(root, text="Получить информацию", command=process_url)
-process_button.grid(row=1, column=0, columnspan=2, pady=10)
+process_button = ttk.Button(root, text="Получить информацию", command=process_url, cursor='hand2', width=67)
+process_button.place(x=10, y=40)
 
 domain_label = ttk.Label(root, text="Домен: ")
-domain_label.grid(row=2, column=0, columnspan=2, pady=5, sticky=tk.W)
+domain_label.place(x=10, y =70)
 
 registrar_label = ttk.Label(root, text="Регистратор: ")
-registrar_label.grid(row=3, column=0, columnspan=2, pady=5, sticky=tk.W)
+registrar_label.place(x=10, y=100)
 
 ip_label = ttk.Label(root, text="IP сервера: ")
-ip_label.grid(row=4, column=0, columnspan=2, pady=5, sticky=tk.W)
+ip_label.place(x=10, y=130)
 
 creation_date_label = ttk.Label(root, text="Дата регистрации: ")
-creation_date_label.grid(row=5, column=0, columnspan=2, pady=5, sticky=tk.W)
+creation_date_label.place(x=10, y=160)
 
 root.mainloop()
